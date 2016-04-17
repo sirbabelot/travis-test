@@ -3,5 +3,5 @@ sudo: required
 language: node_js
 node_js:
   - "5"
-script:
-  - deploy.sh
+after_success:
+  "npm i -g shipit && shipit staging ls"
