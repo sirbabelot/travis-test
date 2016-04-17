@@ -1,3 +1,5 @@
 sudo: required
 
-install: true
+language: node_js
+node_js:
+  - "5"
