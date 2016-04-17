@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sirbabelot/travis-test/issues"
   },
-  "homepage": "https://github.com/sirbabelot/travis-test#readme"
+  "homepage": "https://github.com/sirbabelot/travis-test#readme",
+  "dependencies": {
+    "shipit": "0.8.11"
+  }
 }
