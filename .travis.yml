@@ -4,4 +4,9 @@ language: node_js
 node_js:
   - "5"
 after_success:
-  "npm i shipit shipit-cli && shipit staging ls"
+  - eval "$(ssh-agent -s)" #start the ssh agent
+  - chmod 600 .travis/deploy_key.pem # this key should have push access
+  - ssh-add .travis/deploy_key.pem
+  - cat .travis/deploy_key.pem
+# after_success:
+#   "npm i shipit shipit-cli && shipit staging ls"
