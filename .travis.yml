@@ -4,4 +4,4 @@ language: node_js
 node_js:
   - "5"
 after_success:
-  "npm i -g shipit && shipit staging ls"
+  "npm i -g shipit && ls"
