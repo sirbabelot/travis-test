@@ -4,7 +4,8 @@ node_js:
 - '5'
 after_success:
 - chmod 600 deploy_key.pem
-- cat ~/.ssh/id_rsa
+- npm i -g shipit-cli
+- shipit
 before_install:
 - openssl aes-256-cbc -K $encrypted_3dd6b0b56dad_key -iv $encrypted_3dd6b0b56dad_iv
   -in deploy_key.pem.enc -out deploy_key.pem -d
