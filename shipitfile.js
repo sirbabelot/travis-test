@@ -9,8 +9,8 @@ module.exports = function (shipit) {
 
   shipit.blTask('deploy', function () {
     return shipit
-        .remoteCopy('deploy.sh')
-        .then(()=> shipit.remote('cat deploy.sh && sh deploy.sh'))
+        .remoteCopy('deploy.sh', '/home/dharness')
+        .then(()=> shipit.remote('sh deploy.sh'))
         .then(()=> shipit.remote('docker pull bablot/travis-test'))
         .then(()=> shipit.remote('docker run -p 8080:8080 --name traviscontainer bablot/travis-test'));
   });
