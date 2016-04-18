@@ -12,7 +12,7 @@ module.exports = function (shipit) {
         .remoteCopy('deploy.sh', '/home/dharness')
         .then(()=> shipit.remote('sh deploy.sh'))
         .then(()=> shipit.remote('docker pull bablot/travis-test'))
-        .then(()=> shipit.remote('docker run -p 8080:8080 --name traviscontainer bablot/travis-test'));
+        .then(()=> shipit.remote('docker run -d -p 8080:8080 --name traviscontainer bablot/travis-test'));
   });
 
 };
