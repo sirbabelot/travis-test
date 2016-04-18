@@ -5,7 +5,7 @@ node_js:
 after_success:
 - chmod 600 deploy_key.pem
 - npm i -g shipit-cli
-- shipit staging ls
+- shipit staging deploy
 addons:
   ssh_known_hosts: 107.170.2.166
 before_install:
