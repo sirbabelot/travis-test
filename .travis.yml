@@ -3,6 +3,6 @@ language: node_js
 node_js:
   - '5'
 after_success:
-  - sudo sshpass ssh dharness@107.170.2.166
-before_install:
-  - sudo apt-get install sshpass
+  - eval "$(ssh-agent -s)" #start the ssh agent
+  - chmod 600 .travis/deploy_key.pem # this key should have push access
+  - ssh-add .travis/deploy_key.pem
