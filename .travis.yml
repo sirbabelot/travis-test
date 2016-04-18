@@ -5,7 +5,7 @@ node_js:
 after_success:
 - chmod 600 deploy_key.pem
 - npm i -g shipit-cli
-- shipit
+- shipit staging ls
 before_install:
 - openssl aes-256-cbc -K $encrypted_3dd6b0b56dad_key -iv $encrypted_3dd6b0b56dad_iv
   -in deploy_key.pem.enc -out deploy_key.pem -d
