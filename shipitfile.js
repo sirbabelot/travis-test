@@ -9,12 +9,7 @@ module.exports = function (shipit) {
 
   shipit.blTask('deploy', function () {
     return shipit
-        .remote(`
-          if [[ -z $(docker ps -q -f name=traviscontainer) ]]; then
-            echo "Nothing to remove"
-          else
-            docker rm -f $(docker ps -q -f name=traviscontainer)
-          fi`)
+        .remote('sh deploy.sh')
         .then(()=> shipit.remote('docker pull bablot/travis-test'))
         .then(()=> shipit.remote('docker run -p 8080:8080 --name traviscontainer bablot/travis-test'));
   });
