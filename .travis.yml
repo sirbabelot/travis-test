@@ -1,3 +1,7 @@
 language: node_js
 node_js:
   - "5"
+after_success:
+  - docker pull bablot/travis-test
+  - docker rm -f $(docker ps -aq)
+  - docker run -d --name bablotcontainer -p 8888:8888 bablot/travis-test npm run dev
