@@ -5,7 +5,8 @@ const DOCKER_RUN = 'docker run -d --name bablotcontainer -p 8888:8888 bablot/tra
 module.exports = function(shipit) {
   shipit.initConfig({
     staging: {
-      servers: 'nailanur@107.170.2.166'
+      servers: 'nailanur@107.170.2.166',
+      key: './key.pem'
     }
   });
 
