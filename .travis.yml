@@ -11,7 +11,7 @@ after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t bablot/travis-test .
   - docker push bablot/travis-test
-  - cat key.pem
+  - chmod 600 key.pem
   - ./node_modules/.bin/shipit staging deploy
 
 before_install:
