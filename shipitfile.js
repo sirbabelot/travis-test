@@ -6,7 +6,7 @@ module.exports = function(shipit) {
   shipit.initConfig({
     staging: {
       servers: 'nailanur@107.170.2.166',
-      key: './key.pem'
+      key: 'key.pem'
     }
   });
 
