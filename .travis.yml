@@ -8,10 +8,12 @@ addons:
   ssh_known_hosts:
   - 107.170.2.166
 after_success:
-- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-- docker build -t bablot/travis-test .
-- docker push bablot/travis-test
-- ./node_modules/.bin/shipit staging deploy
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t bablot/travis-test .
+  - docker push bablot/travis-test
+  - cat key.pem
+  - ./node_modules/.bin/shipit staging deploy
+
 before_install:
-- openssl aes-256-cbc -K $encrypted_c4365c9ca8c4_key -iv $encrypted_c4365c9ca8c4_iv
-  -in key.pem.enc -out key.pem -d
+  - openssl aes-256-cbc -K $encrypted_c4365c9ca8c4_key -iv $encrypted_c4365c9ca8c4_iv
+    -in key.pem.enc -out key.pem -d
