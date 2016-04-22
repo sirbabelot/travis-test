@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-  - "5"
+- '5'
+sudo: required
+services:
+- docker
 after_success:
-  - docker pull bablot/travis-test
-  - docker rm -f $(docker ps -aq)
-  - docker run -d --name bablotcontainer -p 8888:8888 bablot/travis-test npm run dev
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t bablot/travis-test .
+  - docker push bablot/travis-test
