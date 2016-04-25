@@ -12,10 +12,8 @@ module.exports = function(shipit) {
 
   shipit.task('deploy', ()=> {
     return shipit
-        .remote(`
-          if ! [ -z $(docker ps -aq -f name=bablotcontainer) ]; 
-            then docker rm -f bablotcontainer
-          fi`)
+        .remoteCopy('deploy.sh')
+        .then(()=> shipit.remote('sh deploy.sh'))
         .then(()=> shipit.remote(DOCKER_PULL))
         .then(()=> shipit.remote(DOCKER_RUN));
   });
