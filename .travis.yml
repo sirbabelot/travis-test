@@ -8,6 +8,7 @@ after_success:
 - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 - docker build -t bablot/travis-test .
 - docker push bablot/travis-test
+- node_modules/.bin/shipit staging yank_deploy
 env:
   global:
   - secure: HuLkd42Zoj0UacuiIMb1Lamceo7WgkOSwljbCMOmjNBgGBKvDClV0U1i0wddkCEtWoWdfFxW+N3akqPpPQ2gP1Jd1AwKYvb9Phw8I34fPbqaSMk0PjaF/LGzoSeCkYqm6EjgkhLkpLK4MeJq6494UbZ90VA4IDE+9473lFD+Q7D2ibZFg5y6VKME5sKM/FgKAykR24OvrX01KHQV4nTng4RMv33035+FgT9aSTJ7B4CxVb/z7XTd8ndQK7+QHpHwV236Ltfx51aszoF8PFWNOUCfjBqyX5ISeIk/vV8Xha8HI7RGMkF/kBWxgh0LQwXoBTgZcHY/XmyZ9Ye5+uZFenBNgJtlZIjceq/YIsMhPCrlEJ8/OyJZ50iQQjlv1pTbFaiGKshUXjNCquHzY/PJV29FIxPXulV37NqaylxshINMRD+kPAyjVdZyWikkm5YprSy1X9NU4x3TLnJMzFtfERH0k6qe7Es2k7C3hFVxD2/REU7+7ZoRPujW/v4su90t06ftDlHZKzU6QQmLzojFV7Z6lpEBmNDmcXxCjN2NxWozrzzSU+AFrRc93gIa5FjwHWKyaBxPs+kzaXdkdVxox0oif+0zjlsyv898GT0ctjiig9/NuhUiIBgM9tdZkOP/cPmdn2XIAamMuM15c1YAYMu1S7/TozedOFZmpj076Mw=
