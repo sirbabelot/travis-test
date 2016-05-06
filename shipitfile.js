@@ -1,7 +1,7 @@
 module.exports = function (shipit) {
   shipit.initConfig({
     staging: {
-      servers: 'Moskalyk@107.170.2.166'
+      servers: 'Moskalyk@107.170.2.166',
       key:'./tmp_keys/key'
     }
   });
