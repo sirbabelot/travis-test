@@ -1,13 +1,15 @@
 language: node_js
-node_js: 
-  - '5'
+node_js:
+- '5'
 sudo: required
 services:
-  - docker
-
+- docker
 after_success:
-  # - ls -a 
-  # - pwd
-  # - which node
-  - docker build -t bablot/travis-test .
-  - docker push bablot/travis-test
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- docker build -t bablot/travis-test .
+- docker push bablot/travis-test
+env:
+  global:
+  - secure: HuLkd42Zoj0UacuiIMb1Lamceo7WgkOSwljbCMOmjNBgGBKvDClV0U1i0wddkCEtWoWdfFxW+N3akqPpPQ2gP1Jd1AwKYvb9Phw8I34fPbqaSMk0PjaF/LGzoSeCkYqm6EjgkhLkpLK4MeJq6494UbZ90VA4IDE+9473lFD+Q7D2ibZFg5y6VKME5sKM/FgKAykR24OvrX01KHQV4nTng4RMv33035+FgT9aSTJ7B4CxVb/z7XTd8ndQK7+QHpHwV236Ltfx51aszoF8PFWNOUCfjBqyX5ISeIk/vV8Xha8HI7RGMkF/kBWxgh0LQwXoBTgZcHY/XmyZ9Ye5+uZFenBNgJtlZIjceq/YIsMhPCrlEJ8/OyJZ50iQQjlv1pTbFaiGKshUXjNCquHzY/PJV29FIxPXulV37NqaylxshINMRD+kPAyjVdZyWikkm5YprSy1X9NU4x3TLnJMzFtfERH0k6qe7Es2k7C3hFVxD2/REU7+7ZoRPujW/v4su90t06ftDlHZKzU6QQmLzojFV7Z6lpEBmNDmcXxCjN2NxWozrzzSU+AFrRc93gIa5FjwHWKyaBxPs+kzaXdkdVxox0oif+0zjlsyv898GT0ctjiig9/NuhUiIBgM9tdZkOP/cPmdn2XIAamMuM15c1YAYMu1S7/TozedOFZmpj076Mw=
+  - secure: QS+N6C0pIvcnkrLPGi47oIEmLwkShk9XOWphoTDJ1diNSI/pnpRTefgd0Iv+48Qwx1PU/05sXriW1YzTUSAtLdWkOLiHJE6pIfS+nVeiUUCrbw3wxI2MRZZFYPzdbhj/OphCyDdvjsbu1Rs/2bzsq1dLi/DsKl0vyOMpK5oCA//K1VzA3olzA1d41UGghFol1S7kygATL6W9a7KZHCkO3JsIo91z96f6R5haRtlhZXnqO+Ta8BVJTTiDzDAV9nywhxfaJqcMERNfNP6p8ty1JbthRfm/LxACRyO38dSVEWCixAJZWVnS6H2IEJjAQ2QZryZMZQg6QDuKYtAWuNzk0NnfEjoxFfO48sMifmKNGw3QwBOZPuvsgdAHmTDYH3IDnpHPtPS8bvVjcdk58kJK0LWLQI/JrcH8aacJwXVClPL2KZvT2p60yEwTZJM0SrHISnn+WHGT6T2s64wto4iXjeAxpJRPVrFzapdJQxwrTZcVtSwPiiqHqyiE+MgsWqWJmtDCH3M7mCo9ePSaZTbI1yz0cCnu3YY+k2326taPVWhzVow9OTEmya25wWumlMR0JnUSR1AR1T2fPowwqWgciNl48DrrX3RDUD2t1ZUZa0+UK64jC3nFkcQXn5T9wd9QxpQ4YBrbEmOo2ruz00l1uRlGnLmwePZDg/r5YwvwFR4=
+  - secure: djeqox+3l3nw1Qit+o8lc71/z3ETzYFlsCNj5UpxK63r/fZAk7+WB7GzX6fRofhbvqp2SjzJUEmvyEGOXk717tQtfnFaqJRTLm6c+IDa9O/Qb36vrpdIPi/fbo9XrGW7w665ZSww4BBn9dhc+90L2lSCH8t4AUpy0hZDqjxwyONbBEONW7bx6pqbQvm5qOXf1FEei3Mit2E9fIaW+Ei878QZj0Ydr94T5LivGBHfOE6AtmiHHQRzvY48UmcYa2cWRztxcEasnhO5u3/KC465f9gXGM/OZGTbovwOnM5OLWp+iot+S6VDG+Hh7BCUlkX13cDuGZaKmk3/2xGMsjlYeqnQKzvJYQgKiyRlsSIDW45HEQMKIFU0UQyBZUtCr3Uq5lVtlkay0wv7rxd5W5Jv0HhW4c71e+Qmxt65ZEufuKR/VnymTEHx2Pa/HmMQzD1edUGbBWqKVBXcY+L4Xhm70hjdryky32wpasi7KyTG0QyIX77Na3Gq8hmX0VWy8RTzrBHBitLRey2SsUSjaxnlGShI0phF8QTa0FxazDi7Z3iTGbx0sLTHHaFWrfZln1V5XxpVx/NfCpvSwigC0E0JDc8TTw3/EOuyYZ/dgAvMWLOm9J7I/cfEmHlZJ2njq8MW2/zcYu6iR4pI0848qBPxHoXpXA92084UQCY40yo9aOo=
