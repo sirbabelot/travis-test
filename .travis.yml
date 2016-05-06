@@ -5,8 +5,9 @@ sudo: required
 services:
   - docker
 
-before_install:
+after_success:
   # - ls -a 
   # - pwd
   # - which node
-  - docker build .
+  - docker build -t bablot/travis-test .
+  - docker push bablot/travis-test
