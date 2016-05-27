@@ -1,4 +1,7 @@
 machine:
+  pre:
+    - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-engine
+    - sudo chmod 0755 /usr/bin/docker
   services:
     - docker
 
